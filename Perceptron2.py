@@ -46,9 +46,9 @@ class Perceptron:
         """
 
         # For each data point:
-        for data_point in xrange(len(values)):
+        for data_point in range(len(values)):  # Python 2 is xrange 
             # TODO: Obtain the neuron's prediction for the data_point --> values[data_point]
-            prediction = self.activate(# TODO)
+            prediction = self.activate(values[data_point])
             # Get the prediction accuracy calculated as (expected value - predicted value)
             # expected value = train[data_point], predicted value = prediction
             error = train[data_point] - prediction
@@ -56,7 +56,7 @@ class Perceptron:
             # - prediction accuracy(error)
             # - learning rate(eta)
             # - input value(values[data_point])
-            weight_update = # TODO
+            weight_update = error * eta * values[data_point]
             self.weights += weight_update
 
 def test():
